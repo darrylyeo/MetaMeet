@@ -1,0 +1,105 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration-color: inherit;
+	min-width: 0;
+	gap: inherit;
+}
+
+:root {
+	--base-fonts: Satoshi, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	--monospace-fonts: 'Fira Code', 'JetBrains Mono', 'Roboto Mono', Menlo, Inconsolata, monospace;
+
+	--primary-color: #f8e485;
+	--secondary-color: #ac85f8;
+
+	--gap-vertical: 0.5em;
+
+	font-size: 16px;
+	font-size: clamp(14px, 1.05vw, 17px);
+	font-family: var(--base-fonts);
+	line-height: 1.5;
+
+	-webkit-font-feature-settings: "liga" on, "calt" on;
+	font-feature-settings: "liga" on, "calt" on;
+	font-variant: tabular-nums;
+
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+
+	--text-color: rgba(0, 0, 0, 0.8);
+	color: var(--text-color);
+	--text-decoration-color: 51, 51, 51;
+	text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+
+	--card-background-color: rgb(255, 255, 255, 0.3);
+	--card-border-radius: 0.5rem;
+	--card-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
+
+	background: linear-gradient(155deg, var(--primary-color), var(--secondary-color)) fixed;
+
+	min-height: 100vh;
+}
+
+:is(body, div, form, section) > * + * {
+	margin-top: var(--gap-vertical);
+}
+
+
+body {
+	padding: 2rem;
+}
+
+h1 {
+	font-weight: 900;
+}
+h2 {
+	line-height: 1.2;
+}
+
+
+hr {
+	border: none;
+	border-bottom: rgba(0, 0, 0, 0.1) 2px dashed;
+	width: 100%;
+}
+
+
+label {
+	display: block;
+}
+label span {
+	display: block;
+}
+
+:-placeholder {
+	opacity: 0.5;
+}
+
+input, select, textarea {
+	border: none;
+	font: inherit;
+}
+
+input {
+	border-radius: 0.5rem;
+	padding: 0.3em 0.7em;
+	flex-basis: 20rem;
+	background: linear-gradient(155deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5))
+}
+
+
+.card {
+	display: inline-grid;
+	align-content: start;
+	padding: 1rem;
+
+	background-image: var(--card-background-image);
+	background-color: var(--card-background-color);
+	background-image: radial-gradient(circle, transparent -75%, var(--card-background-color));
+	border-radius: var(--card-border-radius);
+	box-shadow: var(--card-box-shadow);
+
+	transition: 0.4s;
+}
