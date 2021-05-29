@@ -101,6 +101,53 @@ input {
 }
 
 
+button {
+	-webkit-appearance: none;
+	background: linear-gradient(105deg, var(--primary-color), var(--secondary-color));
+	color: rgba(0, 0, 0, 0.7);
+	border: none;
+	border-radius: 0.33em;
+	cursor: pointer;
+	outline: none;
+
+	padding: 0.3em 0.7em;
+	
+	font: inherit;
+	font-size: 1.15em;
+	font-weight: bolder;
+	text-decoration: none;
+	text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+
+	--depth: 0.15em;
+	--scale: 1;
+	--glow: 0;
+	box-shadow: 0px var(--depth) rgba(0, 0, 0, 0.25), 0px var(--depth) var(--primary-color), 0 var(--depth) var(--glow) var(--primary-color);
+	transform: translateY(calc(-1 * var(--depth))) scale(var(--scale));
+	
+	transition: 0.2s;
+
+	cursor: pointer;
+}
+button:hover, button:focus {
+	--scale: 1.015;
+}
+button:focus {
+	--glow: 5px;
+}
+button:active {
+	--depth: 0;
+}
+button.medium {
+	font-size: 0.95em;
+}
+button.small {
+	font-size: 0.7em;
+}
+button.destructive {
+	--primary-color: hsl(17deg 69% 43%);
+}
+
+
 .card {
 	display: inline-grid;
 	align-content: start;

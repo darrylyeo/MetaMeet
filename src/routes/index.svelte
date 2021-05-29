@@ -12,12 +12,16 @@
 	<h2>Create a Meeting</h2>
 	<hr>
 	<MeetingSetup />
+	<hr>
+	<button>Create</button>
 </section>
 
 <section class="card">
 	<h2>Your Persona</h2>
 	<hr>
 	<PersonaSetup />
+	<hr>
+	<button>Save</button>
 </section>
 
 
