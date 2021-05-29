@@ -6,6 +6,9 @@
 		endDate: Date.now() + 24 * 60 * 60 * 1000,
 		poapID: ''
 	}
+
+
+	import poapIcon from '../assets/poap.svg'
 </script>
 
 
@@ -32,6 +35,7 @@
 
 	<label>
 		<span>POAP</span>
+		<img src={poapIcon} alt="POAP Icon" height="35" />
 		<input type="text" bind:value={meeting.poapID} />
 	</label>
 </form>
