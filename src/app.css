@@ -4,7 +4,6 @@
 	padding: 0;
 	text-decoration-color: inherit;
 	min-width: 0;
-	gap: inherit;
 }
 
 :root {
@@ -15,6 +14,7 @@
 	--secondary-color: #ac85f8;
 
 	--gap-vertical: 0.5em;
+	--gap-horizontal: 0.5em;
 
 	font-size: 16px;
 	font-size: clamp(14px, 1.05vw, 17px);
@@ -85,19 +85,24 @@ label span {
 }
 
 :-placeholder {
-	opacity: 0.5;
+	opacity: 0.25;
 }
 
 input, select, textarea {
 	border: none;
+	/* border: 1px solid rgba(0, 0, 0, 0.075); */
 	font: inherit;
 }
 
-input {
+input, select {
 	border-radius: 0.5rem;
 	padding: 0.3em 0.7em;
 	flex-basis: 20rem;
 	background: linear-gradient(155deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5))
+}
+
+input[type="radio"] + span {
+	display: inline-block;
 }
 
 
