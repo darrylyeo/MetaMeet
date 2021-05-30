@@ -1,6 +1,9 @@
 import { Client, ThreadID, PrivateKey, UserAuth, DBInfo } from '@textile/hub'
 import type { Meeting } from '../meeting'
 
+type DBInfoKey = DBInfo['key']
+
+
 const meetingSchema = {
 	$schema: 'http://json-schema.org/draft-07/schema#',
 	title: 'Meeting',
@@ -78,7 +81,7 @@ async function getUser(){
 	return user
 }
 
-async function getAuth(){
+async function getAuth(fetch = globalThis.fetch){
 	return await fetch(`/api/threaddb-auth?${Date.now()}`).then(r => r.json())
 
 	// const auth: UserAuth = (globalThis.localStorage.auth && JSON.parse(globalThis.localStorage.auth)) || (globalThis.localStorage.auth = JSON.stringify(
@@ -123,8 +126,10 @@ async function getDBInfo(client: Client, threadID: ThreadID) {
 	})()
 }
 
-async function joinFromDBInfo(client: Client, info: DBInfo) {
-	return await client.joinFromInfo(info)
+async function getOrJoinFromDBInfo(client: Client, info: DBInfo) {
+	return threadID ||= await (async () => {
+		return await client.joinFromInfo(info)
+	})()
 }
 
 
@@ -135,6 +140,7 @@ let meetings
 
 export async function createMeeting(meeting: Meeting){
 	console.log('createMeeting')
+
 	const auth = await getAuth()
 	console.log('auth', auth)
 	const client = await getClient(auth)
@@ -142,12 +148,34 @@ export async function createMeeting(meeting: Meeting){
 	const threadID = await getOrCreateDB(client)
 	console.log('threadID', threadID)
 
-	const createdMeeting = await client.create(threadID, MEETINGS_COLLECTION, [meeting])
-	console.log('createdMeeting', createdMeeting)
+	const createdMeetingInstance = await client.create(threadID, MEETINGS_COLLECTION, [meeting])
+	console.log('createdMeetingInstance', createdMeetingInstance)
 
 	const dbInfo = await getDBInfo(client, threadID)
 	console.log('dbInfo', dbInfo)
 	return dbInfo
+}
+
+export async function getMeeting(key: DBInfoKey){
+	console.log('createMeeting')
+
+	const auth = await getAuth()
+	console.log('auth', auth)
+	const client = await getClient(auth)
+	console.log('client', client)
+	const threadID = await getOrJoinFromDBInfo(client, {key, addrs: []})
+	console.log('threadID', threadID)
+
+	const meetingInstances: Meeting[] = await client.find(threadID, MEETINGS_COLLECTION, {limit: 100})
+	console.log('meetingInstances', meetingInstances)
+
+	const dbInfo = await getDBInfo(client, threadID)
+	console.log('dbInfo', dbInfo)
+
+	return {
+		meeting: meetingInstances[0],
+		dbInfo
+	}
 }
 
 export async function getMeetings(meeting: Meeting){
