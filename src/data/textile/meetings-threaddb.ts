@@ -79,7 +79,7 @@ async function getUser(){
 }
 
 async function getAuth(){
-	return await fetch('/api/threaddb-auth').then(r => r.json())
+	return await fetch(`/api/threaddb-auth?${Date.now()}`).then(r => r.json())
 
 	// const auth: UserAuth = (globalThis.localStorage.auth && JSON.parse(globalThis.localStorage.auth)) || (globalThis.localStorage.auth = JSON.stringify(
 	// 	await (async () => {
