@@ -33,6 +33,7 @@
 	}
 
 
+	import textileIcon from '../assets/textile.svg'
 	import livepeerIcon from '../assets/livepeer.svg'
 	import unlockIcon from '../assets/unlock.svg'
 	import poapIcon from '../assets/poap.svg'
@@ -73,16 +74,20 @@
 	<hr>
 
 
-	<h3>Integrations</h3>
+	<h3>Web 3.0 Integrations</h3>
 
 	<div class="integrations">
+		<section class="card">
+			<h4><img src={textileIcon} alt="Textile Icon" width="20" /> Textile (Data/Synchronization/Chat)</h4>
+			<p>Use MetaMeet's event management and chat features, powered by <a href="https://textile.io" target="_blank">Textile</a>'s decentralized infrastructure. Enabled by default.</p>
+		</section>
+
 		<section class="card">
 			<h4><img src={livepeerIcon} alt="Livepeer Icon" width="20" /> Livepeer (Video Streaming)</h4>
 			<p>Broadcast a decentralized live video stream to attendees via <a href="https://livepeer.com" target="_blank">Livepeer</a>.</p>
 
 			<LivepeerStreamPicker bind:selectedStream={meeting.livepeerStream} />
 		</section>
-
 
 		<section class="card">
 			<h4><img src={unlockIcon} alt="Unlock Icon" width="25" /> Unlock Protocol (Membership/Paywall)</h4>

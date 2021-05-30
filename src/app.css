@@ -111,7 +111,7 @@ input[type="radio"] + span {
 
 button {
 	-webkit-appearance: none;
-	background: linear-gradient(105deg, var(--primary-color), var(--secondary-color));
+	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 	color: rgba(0, 0, 0, 0.7);
 	border: none;
 	border-radius: 0.33em;
