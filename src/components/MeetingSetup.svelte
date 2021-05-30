@@ -25,7 +25,11 @@
 
 	async function onSubmit(){
 		const {key, addrs} = await createMeeting(meeting)
-		goto(`meeting/${key}`)
+
+		const params = new URLSearchParams()
+		params.append('dbInfo', JSON.stringify({key, addrs}))
+
+		goto(`meeting?${params}`)
 	}
 
 
