@@ -5,4 +5,6 @@
 
 
 <!-- Blockie -->
+<button class="medium">Blockie</button>
 <!-- NFTs -->
+<button class="medium">Choose NFT...</button>

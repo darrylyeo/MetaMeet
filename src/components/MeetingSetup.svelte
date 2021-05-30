@@ -44,7 +44,7 @@
 <form on:submit|preventDefault={onSubmit}>
 	<label>
 		<span>Meeting Name</span>
-		<input type="text" bind:value={meeting.name} required placeholder="Web3 Weekend" />
+		<input type="text" bind:value={meeting.name} required class="meeting-name" placeholder="Web3 Weekend" />
 	</label>
 
 	<label>
@@ -125,6 +125,15 @@
 
 	<button type="submit">Create</button>
 </form>
+
+
+<style>
+	.meeting-name {
+		font-size: 1.5em;
+		font-weight: bold;
+		width: 100%;
+	}
+</style>
 
 
 

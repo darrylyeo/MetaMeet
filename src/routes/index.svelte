@@ -8,6 +8,7 @@
 
 <header>
 	<h1>🎡 MetaMeet</h1>
+	<h2>Hang out on the decentralized web.</h2>
 </header>
 
 <main>
@@ -26,7 +27,8 @@
 	</section>
 
 	<section class="card">
-		<h2>Your Persona</h2>
+		<h2>Your Profile</h2>
+		<!-- <h2>Your Persona</h2> -->
 		<hr>
 		<PersonaSetup />
 		<hr>
@@ -34,11 +36,11 @@
 	</section>
 </main>
 
-<section>
+<!-- <section>
 	<h2>Happening Now</h2>
 	<hr>
 	<MeetingBrowser />
-</section>
+</section> -->
 
 
 <style>
@@ -58,7 +60,8 @@
 	main {
 		display: grid;
 		grid-auto-flow: column;
-		gap: var(--gap-horizontal)
+		gap: var(--gap-horizontal);
+		grid-template-columns: 1.75fr 1fr 1fr;
 	}
 	main > * {
 		flex: 1 auto;
