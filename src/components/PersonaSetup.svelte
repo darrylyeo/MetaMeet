@@ -20,6 +20,10 @@
 
 <form>
 	<label>
+		<span>Name</span>
+		<input type="text" bind:value={persona.displayName} placeholder="Satoshi Nakamoto" required />
+	</label>
+	<!-- <label>
 		<span>Persona Name</span>
 		<input type="text" bind:value={persona.displayName} placeholder="Satoshi Nakamoto" required />
 	</label>
@@ -27,7 +31,7 @@
 	<label>
 		<span>Username</span>
 		<input type="text" bind:value={persona.username} placeholder="@satoshi" />
-	</label>
+	</label> -->
 
 	<label>
 		<span>Ethereum Account</span>
