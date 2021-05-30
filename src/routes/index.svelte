@@ -15,8 +15,6 @@
 		<h2>Create a Meeting</h2>
 		<hr>
 		<MeetingSetup />
-		<hr>
-		<button>Create</button>
 	</section>
 
 	<section class="card">

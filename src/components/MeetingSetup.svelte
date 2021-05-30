@@ -15,10 +15,18 @@
 			tokenID: undefined
 		},
 		startDate: new Date(),
-		endDate: new Date(Date.now() + 1 * HOUR),
-		poapID: ''
+		endDate: new Date(Date.now() + 1 * HOUR)
 	}
 	$: console.log(meeting)
+
+
+	import { createMeeting } from '../data/textile/meetings-threaddb'
+	import { goto } from '$app/navigation'
+
+	async function onSubmit(){
+		const {key, addrs} = await createMeeting(meeting)
+		goto(`meeting/${key}`)
+	}
 
 
 	import livepeerIcon from '../assets/livepeer.svg'
@@ -29,15 +37,15 @@
 </script>
 
 
-<form on:submit|preventDefault={() => {}}>
+<form on:submit|preventDefault={onSubmit}>
 	<label>
 		<span>Meeting Name</span>
-		<input type="text" bind:value={meeting.name} placeholder="Web3 Weekend"/>
+		<input type="text" bind:value={meeting.name} required placeholder="Web3 Weekend" />
 	</label>
 
 	<label>
 		<span>Start Time</span>
-		<InputDateTime bind:value={meeting.startDate} />
+		<InputDateTime bind:value={meeting.startDate} required />
 		<button class="medium" on:click={() => meeting.startDate = new Date()}>Now</button>
 		<button class="medium" on:click={() => meeting.startDate = new Date((Math.floor(Date.now() / (1 * HOUR)) + 1) * (1 * HOUR))}>Next Hour</button>
 		<button class="medium" on:click={() => meeting.startDate = new Date((Math.floor(Date.now() / (0.5 * HOUR)) + 1) * (0.5 * HOUR))}>Next Half-Hour</button>
@@ -108,6 +116,10 @@
 			</label>
 		</section>
 	</div>
+
+	<hr>
+
+	<button type="submit">Create</button>
 </form>
 
 
