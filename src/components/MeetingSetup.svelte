@@ -14,8 +14,8 @@
 		poapToken: {
 			tokenID: undefined
 		},
-		startDate: new Date(),
-		endDate: new Date(Date.now() + 1 * HOUR)
+		startDate: Date.now(),
+		endDate: Date.now() + 1 * HOUR
 	}
 	$: console.log(meeting)
 
@@ -46,18 +46,18 @@
 	<label>
 		<span>Start Time</span>
 		<InputDateTime bind:value={meeting.startDate} required />
-		<button class="medium" on:click={() => meeting.startDate = new Date()}>Now</button>
-		<button class="medium" on:click={() => meeting.startDate = new Date((Math.floor(Date.now() / (1 * HOUR)) + 1) * (1 * HOUR))}>Next Hour</button>
-		<button class="medium" on:click={() => meeting.startDate = new Date((Math.floor(Date.now() / (0.5 * HOUR)) + 1) * (0.5 * HOUR))}>Next Half-Hour</button>
+		<button type="button" class="medium" on:click={() => meeting.startDate = Date.now()}>Now</button>
+		<button type="button" class="medium" on:click={() => meeting.startDate = (Math.floor(Date.now() / (1 * HOUR)) + 1) * (1 * HOUR)}>Next Hour</button>
+		<button type="button" class="medium" on:click={() => meeting.startDate = (Math.floor(Date.now() / (0.5 * HOUR)) + 1) * (0.5 * HOUR)}>Next Half-Hour</button>
 	</label>
 
 	<label>
 		<span>End Time</span>
 		<InputDateTime bind:value={meeting.endDate} />
-		<button class="medium" on:click={() => meeting.endDate = new Date(meeting.startDate.valueOf() + 0.5 * HOUR)}>30 min</button>
-		<button class="medium" on:click={() => meeting.endDate = new Date(meeting.startDate.valueOf() + 1 * HOUR)}>1 hour</button>
-		<button class="medium" on:click={() => meeting.endDate = new Date(meeting.startDate.valueOf() + 2 * HOUR)}>2 hours</button>
-		<button class="medium" on:click={() => meeting.endDate = new Date(meeting.startDate.valueOf() + 24 * HOUR)}>1 day</button>
+		<button type="button" class="medium" on:click={() => meeting.endDate = meeting.startDate + 0.5 * HOUR}>30 min</button>
+		<button type="button" class="medium" on:click={() => meeting.endDate = meeting.startDate + 1 * HOUR}>1 hour</button>
+		<button type="button" class="medium" on:click={() => meeting.endDate = meeting.startDate + 2 * HOUR}>2 hours</button>
+		<button type="button" class="medium" on:click={() => meeting.endDate = meeting.startDate + 24 * HOUR}>1 day</button>
 	</label>
 
 	<label>

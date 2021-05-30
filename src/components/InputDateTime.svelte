@@ -1,14 +1,16 @@
 <script lang="ts">
-	export let value = new Date()
+	export let value = Date.now()
+	export let required = false
 
 
-	function formatDateTime(date: Date){
+	function formatDateTime(timestamp: number){
+		const date = new Date(timestamp)
 		return new Date(date.getTime() - (date.getTimezoneOffset() * 60 * 1000)).toISOString().slice(0, 16)
 	}
 </script>
 
 
-<input type="datetime-local" value={formatDateTime(value)} on:change={e => value = new Date(e.target.value)} />
+<input type="datetime-local" value={formatDateTime(value)} on:change={e => value = new Date(e.target.value).valueOf()} required />
 
 
 <!-- <script>

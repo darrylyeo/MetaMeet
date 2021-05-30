@@ -8,8 +8,8 @@ const meetingSchema = {
 	properties: {
 		_id: { type: 'string' },
 		name: { type: 'string' },
-		startDate: { type: 'date' },
-		endDate: { type: 'date' },
+		startDate: { type: 'number' },
+		endDate: { type: 'number' },
 		roomSize: {
 			type: 'number',
 			minimum: 1,
@@ -105,7 +105,7 @@ async function newToken(client: Client, user: PrivateKey) {
 async function getOrCreateDB(client: Client) {
 	return threadID ||= await (async () => {
 		// Create new ThreadDB
-		console.log('Creating new newDB...')
+		console.log('Creating new ThreadDB...')
 		const threadID = await client.newDB() // await client.newDB(undefined, 'MeetingDB')
 		console.log('threadID', threadID)
 

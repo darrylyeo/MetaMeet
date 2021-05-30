@@ -1,7 +1,7 @@
 export type Meeting = {
 	name: string,
-	startDate: Date,
-	endDate: Date,
+	startDate: number,
+	endDate: number,
 	roomSize?: number,
 
 	livepeerStream?: {
