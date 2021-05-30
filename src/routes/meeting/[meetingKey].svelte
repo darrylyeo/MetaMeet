@@ -7,6 +7,7 @@
 	 */
 	export async function load({ page, fetch, session, context }) {
 		globalThis.fetch = fetch
+		console.log(page)
 
 		try {
 			const {meeting, dbInfo} = await getMeeting(page.params.meetingKey)
