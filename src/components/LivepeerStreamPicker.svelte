@@ -6,7 +6,10 @@
     let streams: Stream[]
 	let apiKey = '' // env.LIVEPEER_API_KEY as string
 
-    $: if(apiKey){
+    $: if(apiKey)
+		loadLivepeerStreams()
+
+	function loadLivepeerStreams(){
 		streams = undefined
 		fetchStreams(apiKey, {only: 'streams'}).then(_ => streams = _).catch(console.error)
 	}
@@ -42,6 +45,9 @@
 							<span>Choose</span>
 						</label>
 					</article>
+				{:else}
+					<a href="https://livepeer.com/app/user" target="_blank">Set up a stream on Livepeer</a> first.
+					<button on:click={loadLivepeerStreams}>Reload</button>
 				{/each}
 			{/if}
 		</div>
