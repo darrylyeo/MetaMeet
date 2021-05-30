@@ -8,17 +8,18 @@
 
 <header>
 	<h1>🎡 MetaMeet</h1>
-	<h2>Hang out on the decentralized web.</h2>
+	<!-- <h2>Hang out on the decentralized web, beyond space and time.</h2> -->
+	<h2>Find a hang-out spot beyond space and time.</h2>
 </header>
 
 <main>
-	<section class="card">
+	<section class="card create">
 		<h2>Create a Meeting</h2>
 		<hr>
 		<MeetingSetup />
 	</section>
 
-	<section class="card">
+	<section class="card join">
 		<h2>Join Meeting</h2>
 		<hr>
 		<MeetingJoin />
@@ -26,7 +27,7 @@
 		<button>Go</button>
 	</section>
 
-	<section class="card">
+	<section class="card profile">
 		<h2>Your Profile</h2>
 		<!-- <h2>Your Persona</h2> -->
 		<hr>
@@ -53,11 +54,16 @@
 		--gap-horizontal: 0.5rem;
 	}
 
-	header {
+	/* header {
 		text-align: center;
+	} */
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
-	main {
+	/* main {
 		display: grid;
 		grid-auto-flow: column;
 		gap: var(--gap-horizontal);
@@ -65,5 +71,25 @@
 	}
 	main > * {
 		flex: 1 auto;
+	} */
+	main {
+		display: grid;
+		grid-template-areas:
+			"create join"
+			"create profile"
+			"create .";
+		gap: var(--gap-horizontal);
+	}
+
+	.create {
+		grid-area: create;
+	}
+
+	.profile {
+		grid-area: profile;
+	}
+
+	.join {
+		grid-area: join;
 	}
 </style>

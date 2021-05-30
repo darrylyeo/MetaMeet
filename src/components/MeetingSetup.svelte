@@ -133,6 +133,15 @@
 		font-weight: bold;
 		width: 100%;
 	}
+
+	.integrations > * {
+		display: block;
+	}
+	/* .integrations {
+		display: grid;
+		gap: var(--gap-horizontal);
+		grid-template-columns: 1fr 1fr;
+	} */
 </style>
 
 
