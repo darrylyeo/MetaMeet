@@ -36,7 +36,7 @@
 	</label>
 
 	<label>
-		<span>Start Date</span>
+		<span>Start Time</span>
 		<InputDateTime bind:value={meeting.startDate} />
 		<button class="medium" on:click={() => meeting.startDate = new Date()}>Now</button>
 		<button class="medium" on:click={() => meeting.startDate = new Date((Math.floor(Date.now() / (1 * HOUR)) + 1) * (1 * HOUR))}>Next Hour</button>
@@ -44,7 +44,7 @@
 	</label>
 
 	<label>
-		<span>End Date</span>
+		<span>End Time</span>
 		<InputDateTime bind:value={meeting.endDate} />
 		<button class="medium" on:click={() => meeting.endDate = new Date(meeting.startDate.valueOf() + 0.5 * HOUR)}>30 min</button>
 		<button class="medium" on:click={() => meeting.endDate = new Date(meeting.startDate.valueOf() + 1 * HOUR)}>1 hour</button>
@@ -65,16 +65,16 @@
 
 	<div class="integrations">
 		<section class="card">
-			<h4><img src={livepeerIcon} alt="Livepeer Icon" width="20" /> Livepeer.com Stream</h4>
-			<p>Broadcast a live video stream via Livepeer to attendees.</p>
+			<h4><img src={livepeerIcon} alt="Livepeer Icon" width="20" /> Livepeer (Live Streaming)</h4>
+			<p>Broadcast a live video stream to attendees via <a href="https://livepeer.com" target="_blank">Livepeer.com</a>.</p>
 
 			<LivepeerStreamPicker bind:selectedStream={meeting.livepeerStream} />
 		</section>
 
 
 		<section class="card">
-			<h4><img src={unlockIcon} alt="Unlock Icon" width="25" /> Unlock Protocol</h4>
-			<p>Require attendees to have an Unlock Protocol membership to join the meeting. (You'll have to distribute it before the meeting starts.)</p>
+			<h4><img src={unlockIcon} alt="Unlock Icon" width="25" /> Unlock Protocol (Membership/Paywall)</h4>
+			<p>Require attendees to have an <a href="https://unlock-protocol.com" target="_blank">Unlock Protocol</a> membership to join the meeting. (You'll have to distribute it before the meeting starts.)</p>
 
 			<label>
 				<span>Lock Contract Address <small>(<a href="https://app.unlock-protocol.com/dashboard" target="_blank">Create</a>)</small></span>
@@ -99,7 +99,7 @@
 
 		<section class="card">
 			<h4><img src={poapIcon} alt="POAP Icon" width="28" /> Proof of Attendance and Participation (POAP)</h4>
-			<p>Distribute a POAP token to all attendees with a connected Ethereum account when the meeting ends.</p>
+			<p>Distribute a custom <a href="https://poap.xyz" target="_blank">POAP</a> NFT to all attendees with a connected Ethereum account when the meeting ends.</p>
 
 			<label>
 				<span>POAP Token ID <small>(<a href="https://app.poap.xyz/admin/events" target="_blank">Create</a>)</small></span>
@@ -109,3 +109,51 @@
 		</section>
 	</div>
 </form>
+
+
+
+
+<!-- <script lang="ts">
+	export let meeting = {
+		roomSize: 2,
+		videoStream: '',
+		startDate: Date.now(),
+		endDate: new Date(Date.now() + 24 * HOUR),
+		poapID: ''
+	}
+
+
+	import { formula } from 'svelte-formula'
+
+	const { form } = formula({
+		defaultValues: meeting
+	})
+</script>
+
+
+<form use:form>
+	<label>
+		<span>Maximum Room Size</span>
+		<input type="number" name="roomSize" placeholder="Infinite" />
+	</label>
+
+	<label>
+		<span>Video Stream</span>
+		<input type="text" name="videoStream" />
+	</label>
+
+	<label>
+		<span>Start Date</span>
+		<input type="date" name="startDate" />
+	</label>
+
+	<label>
+		<span>End Date</span>
+		<input type="date" name="endDate" />
+	</label>
+
+	<label>
+		<span>POAP</span>
+		<input type="text" name="poapID" />
+	</label>
+</form> -->

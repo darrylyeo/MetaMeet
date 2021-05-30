@@ -24,7 +24,7 @@
 		<hr>
 		<MeetingJoin />
 		<hr>
-		<button>Join</button>
+		<button>Go</button>
 	</section>
 
 	<section class="card">
