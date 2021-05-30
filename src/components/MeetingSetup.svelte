@@ -65,8 +65,8 @@
 
 	<div class="integrations">
 		<section class="card">
-			<h4><img src={livepeerIcon} alt="Livepeer Icon" width="20" /> Livepeer (Live Streaming)</h4>
-			<p>Broadcast a live video stream to attendees via <a href="https://livepeer.com" target="_blank">Livepeer.com</a>.</p>
+			<h4><img src={livepeerIcon} alt="Livepeer Icon" width="20" /> Livepeer (Video Streaming)</h4>
+			<p>Broadcast a decentralized live video stream to attendees via <a href="https://livepeer.com" target="_blank">Livepeer</a>.</p>
 
 			<LivepeerStreamPicker bind:selectedStream={meeting.livepeerStream} />
 		</section>

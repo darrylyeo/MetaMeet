@@ -29,8 +29,7 @@
 	</form>
 {:else}
 	<label>
-		<span>Livepeer Video Stream</span>
-		<span>Livepeer.com Video Stream <small>(<a href="https://livepeer.com/app/user" target="_blank">Create</a>)</small></span>
+		<span>Choose Livepeer.com Video Stream<!-- <small>(<a href="https://livepeer.com/app/user" target="_blank">Create</a>)</small>--></span>
 		<div class="card">
 			{#if !streams}
 				Fetching streams...
